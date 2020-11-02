@@ -41,11 +41,30 @@ router.get('/add-to-cart/:id',(req,res)=>{
 
 });
 
-router.get('/shopping-cart/',(req,res)=>{
-  res.render('shop/shopping-cart',{title:"Cart"});
+router.get('/shopping-cart',(req,res)=>{
+  // res.render('shop/shopping-cart',{title:"Cart"});
+  if(!req.session.cart)
+  {
+    return res.render('shop/shopping-cart',{products:null,title:'Cart'});
+  }
+  let cart = new Cart(req.session.cart);
+  res.render('shop/shopping-cart',{title:'Cart',products:cart.genArray(),totalPrice:cart.totalPrice,totalQty:cart.totalQty});
+
+});
+
+router.get('/checkout',(req,res)=>{
+  if(!req.session.cart)
+  {
+    return res.redirect('/shopping-cart');
+  }
+
+  let cart = new Cart(req.session.cart);
+  res.render('shop/checkout',{title:"Checkout",total:cart.totalPrice});
+
 })
 
-
-
+router.get('/admin',(req,res)=>{
+    res.render('admin/index',{title:"Admin",layout:'layouts/adminLayout.ejs'});
+})
 
 module.exports = router;

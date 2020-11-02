@@ -17,9 +17,10 @@ module.exports = function Cart(oldcart){
 
     this.genArray = function(){
         let arr =[];
-        this.items.forEach(itm=>{
-            arr.push(itm.id);
-        });
+        for(let id in this.items)
+        {
+            arr.push(this.items[id]);
+        }
 
         return arr;
     };

@@ -1,28 +1,33 @@
-<div class="flex flex-col mx-auto justify-center w-9/12 bg-gray-400 my-3">
+<% if(products){ %> 
+ <div class="flex flex-col mx-auto justify-center w-9/12 bg-gray-400 my-3">
 
-    <div class="container p-2 flex flex-row mx-auto w-full my-4 justify-between">
-        <img src="/images/rog.jpg" alt="" class="w-2/12">
-        <div class=" px-2 w-9/12">
-            <div class="font-semibold text-xl">Title</div>
-            <div class="px-1">
-                Description
-            </div>
+    <% for(var prod of products) { %> 
+        <div class="container p-2 flex flex-row mx-auto w-full my-0 border-dotted border-b-2 justify-between border-gray-500 bg-gray-200">
+                <img src="<%=prod.item.imagePath %> " alt="" class="w-2/12">
+                <div class=" px-2 w-9/12">
+                    <div class="font-semibold text-xl">
+                        <%=prod.item.title %>
+                    </div>
+                    <div class="px-1">
+                        <%=prod.item.description %>
+                    </div>
+                </div>
+                <div class="px-2 w-1/12 ">
+                    <div class="font-medium">
+                        Qty : <%=prod.qty %>
+                    </div>
+                    <div class="font-bold bottom-0">
+                        $ <%=prod.price %>
+                    </div>
+
+                </div>
+
+                <hr>   
+
         </div>
-        <div class="px-2 w-1/12 ">
-            <div class="font-medium">
-                Quantity:0
-            </div>
-            <div class="font-bold bottom-0">
-                Price
-            </div>
-
-        </div>
-
-        <hr>   
-
-    </div>
-
-    <div class="container mx-auto p-2 w-full bg-gray-300 mt-0">
+    <% } %> 
+        
+    <div class="container mx-auto p-2 w-full bg-gray-400 mt-0 relative">
         <div class="font-bold uppercase text-gray-10 text-xl w-full border-b border-black border-dotted">
             price details
         </div>
@@ -31,7 +36,7 @@
                 Total Quantity
             </div>
             <div class="font-bold ">
-                8
+                <%=totalQty %> 
             </div>
 
         </div>
@@ -41,10 +46,14 @@
                 Total Price
             </div>
             <div class="font-bold ">
-                $ 8
+                $ <%=totalPrice %> 
             </div>
 
         </div>
+
+        <a href="/checkout">
+            <button class="rounded-bl rounded-tr-xl bg-red-10 px-3 py-2 uppercase font-semibold text-gray-400 hover:shadow-lg ">place order</button>
+        </a>
 
 
     </div>
@@ -55,4 +64,15 @@
 
 </div>
 
-<hr>
+<hr class="border-gray-600 w-10/12 mx-auto">
+
+
+<% }else{ %>
+
+
+
+    <div class="flex flex-col mx-auto justify-center w-9/12 bg-gray-400 my-3">
+        <div class="font-bold text-2xl">No items in the cart</div>
+    </div>
+
+<% } %> 
