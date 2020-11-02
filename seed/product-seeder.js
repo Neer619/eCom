@@ -12,25 +12,25 @@ mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true})
 
 let products = [
     new Product({
-        imagePath:'images/rog.jpg',
+        imagePath:'/images/rog.jpg',
         title:'Rog',
         description:'Awesome brand!!',
         price:10
     }),
     new Product({
-        imagePath:'images/rog.jpg',
+        imagePath:'/images/rog.jpg',
         title:'ANti-hero',
         description:'lorem!!',
         price:10
     }),
     new Product({
-        imagePath:'images/rog.jpg',
+        imagePath:'/images/rog.jpg',
         title:'Sand buster',
         description:'lorem ipsume',
         price:25
     }),
     new Product({
-        imagePath:'images/rog.jpg',
+        imagePath:'/images/rog.jpg',
         title:'SideKnock',
         description:'Disewe neiys!!',
         price:19
