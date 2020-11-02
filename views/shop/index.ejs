@@ -1,8 +1,17 @@
+<div class="w-screen bg-green-500" style="height:500px; background-image: url('images/valorant.jpg');">
+
+</div>
+
+<div class="text-white text-2xl uppercase text-center my-4 font-semibold">
+    check out our products
+</div>
+<hr>
+
 <div class="flex flex-row flex-wrap w-screen justify-center ">
  <% for(var prod of products){ %> 
     
-            <div class=" w-1/6 m-2 p-2 bg-gray-400 hover:shadow-lg ">
-                <img src="<%=prod.imagePath  %> " alt="" class="mx-auto h-16">
+            <div class=" w-1/6 m-2 p-2 bg-white hover:shadow-lg ">
+                <img src="<%=prod.imagePath  %> " alt="" class="mx-auto h-32">
                 <div class="font-semibold text-center text-xl"><%=prod.title %> </div>
                 <p class=" text-sm text-gray-30"><%=prod.description  %> </p>
                 <div class="flex relative mt-2">
