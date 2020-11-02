@@ -1,0 +1,32 @@
+<nav class="flex space-x-2 flex-row font-dosis w-screen bg-gray-50 h-auto text-white px-2 py-1 content-center ">
+    <a href="/" class="block hover:text-red-10 ">
+        <div class=""><i class="fas fa-gamepad"></i> </div>
+        <div class="font-dancing-sript font-semibold my-0">Gaming Hub</div>
+    </a>
+
+    <div class="block mx-3 my-auto font-semibold">
+        <ul class="inline-flex space-x-2">
+            <li><a href="/" class="hover:text-red-10" >Home</a></li>
+            <li><a href="#" class="hover:text-red-20" >About</a></li>
+        </ul>
+    </div>
+
+    <% if(!login){ %> 
+        <a href="/user/signin">
+            <button class="rounded-full uppercase px-5 py-2 my-auto font-semibold border-0 bg-gradient-to-r from-red-40 to-red-10 focus:outline-none button-glow-green hover:bg-gradient-to-r hover:from-red-10 hover:to-red-40 ">Login</button>
+        </a>
+    <% }else{ %>
+
+        <div class="text-2xl my-auto mx-3 hover:text-red-10 ">
+            <a href="/shopping-cart/"><i class="fas fa-shopping-cart"></i></a>
+            <div class="bg-red-10 text-white px-1 rounded-tl-xl font-semibold text-sm inline"><%=session.cart.totalQty %> </div>
+        </div>
+
+        <a href="/user/logout">
+            <button class="rounded-full uppercase px-5 py-2 my-auto font-semibold border-0 bg-gradient-to-r from-red-40 to-red-10 focus:outline-none button-glow-green hover:bg-gradient-to-r hover:from-red-10 hover:to-red-40 ">Logout</button>
+        </a>
+    <% } %> 
+   
+
+
+</nav>

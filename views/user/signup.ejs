@@ -1,0 +1,33 @@
+<div class="container flex max-w-4xl mx-auto mt-4">
+<div class="bg-blue-800 w-7/12">
+    <img src="/images/gw.png" alt="Image">
+</div>
+
+<div class="container w-5/12 bg-gradient-to-tl from-blue-200 to-white p-4">
+    <img src="/images/gaming.png" alt="" class="h-16 w-16 mx-auto mt-16">
+
+    <h2 class="text-center font-dancing-sript font-extrabold">Welcome to GamingHub</h2>
+
+    <h1 class="uppercase text-center font-bold text-2xl mt-6">Register</h1>
+
+    <% if(hasErrors){ for(let mes of messages){%> 
+    <div class="text-red-60 bg-red-400 w-full py-2 text-center font-semibold"><%=mes %> </div>
+    <% }} %> 
+    <form action="/user/signup" method="post">
+        <!-- email -->
+        <input type="text" name="email" id="" class="appearance-none bg-transparent border-node border-b border-black w-full leading-tight focus:outline-none mt-5 h-5 focus:shadow-xl pb-1 text-gray-600 pl-2  " placeholder="Email">
+        
+        <!-- password   -->
+        <input type="text" name="password" id="" class="appearance-none bg-transparent border-node border-b border-black w-full leading-tight focus:outline-none mt-5 h-5 focus:shadow-xl pb-1 text-gray-600 pl-2 " placeholder="Password">
+
+        <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+        <input type="submit" value="Register" class="rounded-3xl bg-blue-900 py-2 px-2 mt-8 hover:bg-blue-800 text-white w-full uppercase font-bold focus:outline-none hover:shadow-xl">
+        
+
+    </form>
+
+    Already have an account? <a href="/user/signin" class="ml-3 font-bold text-blue-400 "> Login</a>
+
+</div>
+
+</div>

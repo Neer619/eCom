@@ -1,0 +1,21 @@
+<div class="flex flex-row flex-wrap w-screen justify-center ">
+ <% for(var prod of products){ %> 
+    
+            <div class=" w-1/6 m-2 p-2 bg-gray-400 hover:shadow-lg ">
+                <img src="<%=prod.imagePath  %> " alt="" class="mx-auto">
+                <div class="font-semibold text-center text-xl"><%=prod.title %> </div>
+                <p class=" text-sm text-gray-30"><%=prod.description  %> </p>
+                <div class="flex relative">
+                    <div class="price">$<%=prod.price  %>  </div>
+                    <a href="/add-to-cart/<%=prod._id%>">
+                        <button class=" bg-red-10 px-3 font-semibold absolute right-0 rounded">Add to Cart</button>
+                    </a>
+
+                        
+                </div>
+            </div>
+        
+    <% } %> 
+    
+    </div>
+    
