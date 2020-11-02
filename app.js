@@ -16,6 +16,8 @@ var indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const { MongoStore } = require('connect-mongo');
 
+const ProductModel = require('./models/product');
+
 
 var app = express();
 
@@ -68,8 +70,37 @@ app.use((req,res,next)=>{
   next();
 })
 
+
+app.get('/add-product',(req,res)=>{
+  res.redirect('/admin');
+})
+
+app.post('/add-product',(req,res)=>{
+  console.log(req.body);
+  let newprod = new ProductModel({
+    imagePath:"/images/"+req.body.image,
+    title:req.body.title,
+    price:req.body.price,
+    description:req.body.description
+  })
+
+  newprod.save()
+  .then((result)=>{
+    res.redirect('/admin');
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+
+})
+
+
 app.use('/user',userRouter);
 app.use('/', indexRouter);
+
+
+
+
 
 
 

@@ -67,4 +67,7 @@ router.get('/admin',(req,res)=>{
     res.render('admin/index',{title:"Admin",layout:'layouts/adminLayout.ejs'});
 })
 
+
+
+
 module.exports = router;
