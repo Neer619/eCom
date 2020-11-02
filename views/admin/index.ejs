@@ -1,10 +1,12 @@
 
 
 <div class="container p-3 w-8/12 mx-auto bg-gray-400 m-3 rounded shadow-lg">
-    <div class="text-center font-bold text-lg mb-2">Add new Product</div>  
+    <div class="text-center font-bold text-lg mb-2 uppercase">Add new Product</div>  
     
-    <div class="bg-green-400 text-center hidden"><i class="fas fa-check"></i> Product Added Successfully</div>
-    
+    <% if(productAdded){ %> 
+    <div class="bg-green-400 text-center"><i class="fas fa-check"></i> Product Added Successfully</div>
+    <% }%>
+
         <form action="/add-product" method="POST">
         
             <div class="mt-2">

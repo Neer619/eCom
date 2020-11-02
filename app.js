@@ -71,12 +71,13 @@ app.use((req,res,next)=>{
 })
 
 
+
 app.get('/add-product',(req,res)=>{
   res.redirect('/admin');
-})
+});
 
 app.post('/add-product',(req,res)=>{
-  console.log(req.body);
+  
   let newprod = new ProductModel({
     imagePath:"/images/"+req.body.image,
     title:req.body.title,
@@ -86,7 +87,8 @@ app.post('/add-product',(req,res)=>{
 
   newprod.save()
   .then((result)=>{
-    res.redirect('/admin');
+    // req.session.productAdded='success';
+    res.redirect('/admin/?productAdded=success');
   })
   .catch((err)=>{
     console.log(err);

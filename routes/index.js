@@ -5,6 +5,7 @@ const passport = require('passport');
 
 const Product = require('../models/product');
 const Cart = require('../models/cart');
+const { route } = require('./user');
 
 const csrfProtection = csrf();
 router.use(csrfProtection);
@@ -18,7 +19,7 @@ router.get('/', function(req, res, next) {
     
     // res.send(result);
   
-    res.render('shop/index',{title:'Products',products:result});
+    res.render('shop/index',{title:'Home',products:result});
 
   });
 
@@ -63,10 +64,11 @@ router.get('/checkout',(req,res)=>{
 
 })
 
-router.get('/admin',(req,res)=>{
-    res.render('admin/index',{title:"Admin",layout:'layouts/adminLayout.ejs'});
-})
 
+router.get('/admin',(req,res)=>{
+  var productAdded = req.query.productAdded;
+  res.render('admin/index',{title:"Admin",layout:'layouts/adminLayout.ejs',productAdded});
+})
 
 
 
